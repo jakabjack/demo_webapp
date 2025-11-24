@@ -16,12 +16,28 @@ const config: Config = {
     '!src/main.tsx',
     '!src/vite-env.d.ts',
   ],
+  coverageReporters: ['text', 'lcov', 'json-summary'],
   transform: {
     '^.+\\.tsx?$': ['ts-jest', {
       tsconfig: {
         jsx: 'react-jsx',
       },
+      isolatedModules: true,
     }],
+  },
+  coverageThreshold: {
+    global: {
+      statements: 0,
+      branches: 0,
+      functions: 0,
+      lines: 0,
+    },
+    './src/components/**/*.tsx': {
+      statements: 80,
+      branches: 80,
+      functions: 80,
+      lines: 80,
+    },
   },
 };
 

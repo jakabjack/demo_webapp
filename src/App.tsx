@@ -3,9 +3,19 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Button from './components/Button'
+import Select from './components/Select'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [selectedColor, setSelectedColor] = useState('')
+
+  const colorOptions = {
+    'Red': 'red',
+    'Blue': 'blue',
+    'Green': 'green',
+    'Yellow': 'yellow',
+    'Purple': 'purple',
+  }
 
   return (
     <>
@@ -23,6 +33,15 @@ function App() {
           title={`count is ${count}`}
           onClick={() => setCount((count) => count + 1)}
         />
+        <div style={{ marginTop: '20px' }}>
+          <Select
+            options={colorOptions}
+            onChange={setSelectedColor}
+            value={selectedColor}
+            placeholder="Select a color"
+          />
+          {selectedColor && <p>Selected color: {selectedColor}</p>}
+        </div>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

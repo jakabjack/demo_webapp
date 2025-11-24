@@ -6,6 +6,7 @@ interface ButtonProps {
 }
 
 const Button = ({ title, onClick, disabled = false, className = '' }: ButtonProps) => {
+  console.debug('abc');
   return (
     <button
       onClick={onClick}

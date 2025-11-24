@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -33,3 +35,11 @@ jobs:
 
       - name: Build application
         run: npm run build
+
+      - name: Check coverage for changed files
+        run: |
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            npm run test:coverage-changed origin/${{ github.base_ref }}
+          else
+            npm run test:coverage-changed HEAD~1
+          fi 
