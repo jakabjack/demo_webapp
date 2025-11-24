@@ -33,3 +33,6 @@ jobs:
 
       - name: Build application
         run: npm run build
+
+      - name: Check coverage for changed files
+        run: npm run test:coverage-changed origin/${{ github.base_ref }}        
