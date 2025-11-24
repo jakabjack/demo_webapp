@@ -10,7 +10,9 @@
     "preview": "vite preview",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "test:changed": "jest --changedSince=HEAD~1",
+    "test:changed:coverage": "jest --coverage --changedSince=HEAD~1"
   },
   "dependencies": {
     "react": "^19.2.0",

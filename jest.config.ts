@@ -21,6 +21,7 @@ const config: Config = {
       tsconfig: {
         jsx: 'react-jsx',
       },
+      isolatedModules: true,
     }],
   },
 };
